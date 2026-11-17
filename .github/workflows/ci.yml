@@ -1,6 +1,8 @@
 name: eval
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
   run:
@@ -10,15 +12,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install numpy
-      - name: baselines + replay check
+      - name: install
+        run: pip install numpy
+      - name: baselines with replay check
         run: python3 baselines/run_eval.py --replay
-      - name: fail if replay is not identical
-        run: python3 -c "
-import json,sys
-ok=True
-for t in ('eeg','oct'):
-    d=json.load(open(f'results/{t}_baseline.json'))
-    print(t, 'replay_ok=', d['replay_ok'])
-    ok = ok and d['replay_ok']
-sys.exit(0 if ok else 1)"
+      - name: assert replay is identical
+        run: python3 tools/check_replay.py
