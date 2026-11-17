@@ -2,6 +2,11 @@
 
 **Auditable evaluation environments for medical signal & imaging tasks** — the grading is the product, not the score.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24300159.svg)](https://doi.org/10.5281/zenodo.24300159)
+[![eval](https://github.com/Even-li316/med-eval-envs/actions/workflows/ci.yml/badge.svg)](https://github.com/Even-li316/med-eval-envs/actions)
+
+Technical report (3 pages, states the limitations plainly): [doi:10.5281/zenodo.24300159](https://doi.org/10.5281/zenodo.24300159) · [`paper/med_eval_envs_v0.pdf`](paper/med_eval_envs_v0.pdf)
+
 [中文说明见下](#中文)
 
 ---
